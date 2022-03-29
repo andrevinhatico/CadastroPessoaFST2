@@ -1,0 +1,15 @@
+C:\www\CadastroPessoaFST2\bin\Debug\net6.0\CadastroPessoaFST2.exe
+C:\www\CadastroPessoaFST2\bin\Debug\net6.0\CadastroPessoaFST2.deps.json
+C:\www\CadastroPessoaFST2\bin\Debug\net6.0\CadastroPessoaFST2.runtimeconfig.json
+C:\www\CadastroPessoaFST2\bin\Debug\net6.0\CadastroPessoaFST2.dll
+C:\www\CadastroPessoaFST2\bin\Debug\net6.0\CadastroPessoaFST2.pdb
+C:\www\CadastroPessoaFST2\obj\Debug\net6.0\CadastroPessoaFST2.csproj.AssemblyReference.cache
+C:\www\CadastroPessoaFST2\obj\Debug\net6.0\CadastroPessoaFST2.GeneratedMSBuildEditorConfig.editorconfig
+C:\www\CadastroPessoaFST2\obj\Debug\net6.0\CadastroPessoaFST2.AssemblyInfoInputs.cache
+C:\www\CadastroPessoaFST2\obj\Debug\net6.0\CadastroPessoaFST2.AssemblyInfo.cs
+C:\www\CadastroPessoaFST2\obj\Debug\net6.0\CadastroPessoaFST2.csproj.CoreCompileInputs.cache
+C:\www\CadastroPessoaFST2\obj\Debug\net6.0\CadastroPessoaFST2.dll
+C:\www\CadastroPessoaFST2\obj\Debug\net6.0\refint\CadastroPessoaFST2.dll
+C:\www\CadastroPessoaFST2\obj\Debug\net6.0\CadastroPessoaFST2.pdb
+C:\www\CadastroPessoaFST2\obj\Debug\net6.0\CadastroPessoaFST2.genruntimeconfig.cache
+C:\www\CadastroPessoaFST2\obj\Debug\net6.0\ref\CadastroPessoaFST2.dll
