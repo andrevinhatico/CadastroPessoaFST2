@@ -4,15 +4,15 @@ namespace CadastroPessoaFST2.Classes
 {
     public class PessoaFisica : Pessoa , IPessoaFisica 
     {
-        public string? cpf { get; set; }
+        public string? Cpf { get; set; }
 
-        public DateTime dataNasc { get; set; }
+        public DateTime DataNasc { get; set; }
 
         public override float PagarImposto(float rendimento)
         {
             throw new NotImplementedException();
         }
-
+        
         public bool ValidarDataNasc(DateTime dataNasc)
         {
             DateTime dataAtual = DateTime.Today;

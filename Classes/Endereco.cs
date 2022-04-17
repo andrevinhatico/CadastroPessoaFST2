@@ -2,13 +2,13 @@ namespace CadastroPessoaFST2.Classes
 {
     public class Endereco
     {
-        public string? logradouro { get; set; }
+        public string? Logradouro { get; set; }
 
-        public int numero { get; set; }
+        public int Numero { get; set; }
 
-        public string? complemento { get; set; }  
+        public string? Complemento { get; set; }  
 
-        public bool endComercial { get; set; }
+        public bool EndComercial { get; set; }
         
                           
         

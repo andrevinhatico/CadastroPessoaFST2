@@ -5,9 +5,9 @@ namespace CadastroPessoaFST2.Classes
 {
     public class PessoaJuridica : Pessoa , IPessoaJuridica
     {
-        public string? cnpj { get; set; }
+        public string? Cnpj { get; set; }
 
-        public string? razaoSocial { get; set; }
+        public string? RazaoSocial { get; set; }
 
         public override float PagarImposto(float rendimento)
         {
@@ -37,6 +37,11 @@ namespace CadastroPessoaFST2.Classes
             }
 
             return false;
+        }
+
+        internal object ValidarCNPJ(object cnpj)
+        {
+            throw new NotImplementedException();
         }
     }
 }
