@@ -10,7 +10,22 @@ namespace CadastroPessoaFST2.Classes
 
         public override float PagarImposto(float rendimento)
         {
-            throw new NotImplementedException();
+            if (rendimento <= 1500)
+            {
+                return 0;
+            }
+            else if (rendimento > 1500 && rendimento <= 3500)
+            {
+                return (rendimento / 100) * 2;
+            }
+            else if (rendimento > 3500 && rendimento <= 6000)
+            {
+                return (rendimento / 100) * 3.5f;
+            }
+            else
+            {
+                return (rendimento / 100) *5;
+            }
         }
         
         public bool ValidarDataNasc(DateTime dataNasc)
@@ -19,7 +34,7 @@ namespace CadastroPessoaFST2.Classes
 
             double anos = (dataAtual - dataNasc).TotalDays / 365;
 
-            Console.WriteLine($"{anos}");
+            //Console.WriteLine($"{anos}");
 
             if (anos >= 18 && anos < 120)
             {
@@ -61,5 +76,38 @@ namespace CadastroPessoaFST2.Classes
             return false;
 
         }
+
+        public int ValidarIdade(DateTime dataNascimento) {          
+            
+            DateTime dataAtual = DateTime.Today;
+
+            double anos = (dataAtual - dataNascimento).TotalDays / 365;
+
+            int idade = (int) anos;
+
+            return idade;  
+
+                    
+
+        }
+
+        public int ValidarIdade(string dataNascimento) {
+
+            DateTime dataConvertida;
+
+            DateTime.TryParse(dataNascimento, out dataConvertida);
+            
+            DateTime dataAtual = DateTime.Today;
+
+            double anos = (dataAtual - dataConvertida).TotalDays / 365;
+
+            int idade = (int) anos;
+
+            return idade;                                         
+
+           
+        }
+
+                
     }
 }

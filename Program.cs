@@ -11,7 +11,6 @@ Console.WriteLine(@$"
 
 Util.BarraCarregamento("Carregando", 500);
 
-
 string? opcao;
 
 do
@@ -38,9 +37,9 @@ do
             Endereco novoEnd = new Endereco();
 
             novaPf.Nome = "Andre";
-            novaPf.DataNasc = new DateTime(2000, 01, 01);
+            novaPf.DataNasc = new DateTime(2005, 05, 01);
             novaPf.Cpf = "1234567890";
-            novaPf.Rendimento = 10000.5f;
+            novaPf.Rendimento = 5000.5f;
 
             novoEnd.Logradouro = "Avenida Bora Baea";
             novoEnd.Numero = 5988;
@@ -57,19 +56,26 @@ do
             Console.Clear();
             Console.WriteLine(@$"
 Nome: {novaPf.Nome}
-Data de Nascimento: {novaPf.DataNasc}
+Data de Nascimento: {(novaPf.DataNasc).ToString("dd/MM/yyyy")}
 CPF: {novaPf.Cpf}
 Endereço: {novaPf.Endereco.Logradouro}, {novaPf.Endereco.Numero}, {novaPf.Endereco.Complemento}
-            ");
+Rendimento: {novaPf.Rendimento.ToString("C")}
+Taxa de Imposto a ser pago é: {metodoPf.PagarImposto(novaPf.Rendimento).ToString("C")}
+Maior de idade: {(metodoPf.ValidarDataNasc(novaPf.DataNasc) ? "Sim" : "Não")} 
+Idade: {metodoPf.ValidarIdade(novaPf.DataNasc)} anos 
 
-            Console.WriteLine($"{metodoPf.ValidarDataNasc(novaPf.DataNasc)}");
+            ");
+            // Console.WriteLine($"{metodoPf.ValidarIdade(novaPf.DataNasc)}");
+
+
+            // Console.WriteLine($"{metodoPf.ValidarDataNasc(novaPf.DataNasc)}");
 
             // Console.WriteLine($"{novaPf.ValidarDataNasc(new DateTime(2012,01,01))}");
 
             Console.WriteLine();
             Console.WriteLine($"Aperte 'ENTER' para continuar");
             Console.ReadLine();
-            
+
 
             break;
 
@@ -95,7 +101,7 @@ Endereço: {novaPf.Endereco.Logradouro}, {novaPf.Endereco.Numero}, {novaPf.Ender
 Nome: {novaPj.Nome}
 Razão Social: {novaPj.RazaoSocial}
 CNPJ: {novaPj.Cnpj}
-CNPJ Válido: {metodopj.ValidarCNPJ(novaPj.Cnpj)}
+CNPJ Válido: {(metodopj.ValidarCNPJ(novaPj.Cnpj) ? "Sim" : "Não")}
 Endereço: {novaPj.Endereco.Logradouro}, {novaPj.Endereco.Numero}, {novaPj.Endereco.Complemento}
             ");
 
@@ -119,7 +125,7 @@ Endereço: {novaPj.Endereco.Logradouro}, {novaPj.Endereco.Numero}, {novaPj.Ender
             Console.Clear();
             Console.WriteLine($"Opção inválida ! Favor digitar outra opção!");
             Thread.Sleep(3000);
-            
+
             break;
     }
 } while (opcao != "0");
