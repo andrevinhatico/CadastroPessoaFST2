@@ -2,11 +2,11 @@ using CadastroPessoaFST2.Interfaces;
 
 namespace CadastroPessoaFST2.Classes
 {
-    public class PessoaFisica : Pessoa , IPessoaFisica 
+    public class PessoaFisica : Pessoa, IPessoaFisica
     {
         public string? Cpf { get; set; }
 
-        public DateTime DataNasc { get; set; }
+        public string? DataNasc { get; set; }
 
         public override float PagarImposto(float rendimento)
         {
@@ -24,10 +24,10 @@ namespace CadastroPessoaFST2.Classes
             }
             else
             {
-                return (rendimento / 100) *5;
+                return (rendimento / 100) * 5;
             }
         }
-        
+
         public bool ValidarDataNasc(DateTime dataNasc)
         {
             DateTime dataAtual = DateTime.Today;
@@ -41,7 +41,7 @@ namespace CadastroPessoaFST2.Classes
                 return true;
             }
 
-            return false;        
+            return false;
 
         }
 
@@ -50,7 +50,8 @@ namespace CadastroPessoaFST2.Classes
         /// </summary>
         /// <param name="dataNasc"></param>
         /// <returns>Retorna um bool</returns>
-        public bool ValidarDataNasc(string dataNasc) {
+        public bool ValidarDataNasc(string dataNasc)
+        {
 
             DateTime dataConvertida;
 
@@ -60,8 +61,8 @@ namespace CadastroPessoaFST2.Classes
 
                 double anos = (dataAtual - dataConvertida).TotalDays / 365;
 
-                Console.WriteLine($"{anos}");
-                
+                //Console.WriteLine($"{anos}");
+
 
                 if (anos >= 18 && anos < 120)
                 {
@@ -70,44 +71,46 @@ namespace CadastroPessoaFST2.Classes
 
                 return false;
 
-                
+
             }
 
             return false;
 
         }
 
-        public int ValidarIdade(DateTime dataNascimento) {          
-            
+        public int ValidarIdade(DateTime dataNascimento)
+        {
+
             DateTime dataAtual = DateTime.Today;
 
             double anos = (dataAtual - dataNascimento).TotalDays / 365;
 
-            int idade = (int) anos;
+            int idade = (int)anos;
 
-            return idade;  
+            return idade;
 
-                    
+
 
         }
 
-        public int ValidarIdade(string dataNascimento) {
+        public int ValidarIdade(string dataNascimento)
+        {
 
             DateTime dataConvertida;
 
             DateTime.TryParse(dataNascimento, out dataConvertida);
-            
+
             DateTime dataAtual = DateTime.Today;
 
             double anos = (dataAtual - dataConvertida).TotalDays / 365;
 
-            int idade = (int) anos;
+            int idade = (int)anos;
 
-            return idade;                                         
+            return idade;
 
-           
+
         }
 
-                
+
     }
 }
