@@ -114,7 +114,17 @@ do
                         }
 
                         novaPf.Endereco = novoEnd;
+
                         listaPf.Add(novaPf);
+
+                        //StreamWriter sw = new StreamWriter($"{novaPf.Nome}.txt");
+                        //sw.WriteLine(novaPf.Nome);
+                        //sw.Close();
+
+                        using (StreamWriter sw = new StreamWriter($"{novaPf.Nome}.txt"))
+                        {
+                            sw.WriteLine(novaPf.Nome);
+                        }
 
                         Console.Clear();
                         Console.WriteLine($"Cadastro realizado com sucesso!");
@@ -125,32 +135,46 @@ do
                     case "2":
                         Console.Clear();
 
-                        if (listaPf.Count > 0)
+                        //                         if (listaPf.Count > 0)
+                        //                         {
+                        //                             foreach (PessoaFisica cadaPessoa in listaPf)
+                        //                             {
+                        //                                 Console.WriteLine(@$"
+                        // Nome: {cadaPessoa.Nome}
+                        // Data de Nascimento: {cadaPessoa.DataNasc}
+                        // CPF: {cadaPessoa.Cpf}
+                        // Endereço: {cadaPessoa.Endereco.Logradouro}, {cadaPessoa.Endereco.Numero}, {cadaPessoa.Endereco.Complemento}
+                        // Rendimento: {cadaPessoa.Rendimento.ToString("C")}
+                        // Taxa de Imposto a ser pago é: {metodoPf.PagarImposto(cadaPessoa.Rendimento).ToString("C")}
+                        // Maior de idade: {(metodoPf.ValidarDataNasc(cadaPessoa.DataNasc) ? "Sim" : "Não")} 
+                        // Idade: {metodoPf.ValidarIdade(cadaPessoa.DataNasc)} anos 
+                        //             ");
+                        //                                 Console.WriteLine();
+                        //                                 Console.WriteLine($"Aperte 'ENTER' para continuar");
+                        //                                 Console.ReadLine();
+
+                        //                             }
+                        //                         }
+                        //                         else
+                        //                         {
+                        //                             Console.WriteLine($"Lista Vazia");
+                        //                             Thread.Sleep(3000);
+
+                        //                         }
+
+                        using (StreamReader sr = new StreamReader("André Ribeiro.txt"))
                         {
-                            foreach (PessoaFisica cadaPessoa in listaPf)
+                            string? linha;
+
+                            while ((linha = sr.ReadLine()) != null)
                             {
-                                Console.WriteLine(@$"
-Nome: {cadaPessoa.Nome}
-Data de Nascimento: {cadaPessoa.DataNasc}
-CPF: {cadaPessoa.Cpf}
-Endereço: {cadaPessoa.Endereco.Logradouro}, {cadaPessoa.Endereco.Numero}, {cadaPessoa.Endereco.Complemento}
-Rendimento: {cadaPessoa.Rendimento.ToString("C")}
-Taxa de Imposto a ser pago é: {metodoPf.PagarImposto(cadaPessoa.Rendimento).ToString("C")}
-Maior de idade: {(metodoPf.ValidarDataNasc(cadaPessoa.DataNasc) ? "Sim" : "Não")} 
-Idade: {metodoPf.ValidarIdade(cadaPessoa.DataNasc)} anos 
-            ");
-                                Console.WriteLine();
-                                Console.WriteLine($"Aperte 'ENTER' para continuar");
-                                Console.ReadLine();
+                                Console.WriteLine($"{linha}");
 
                             }
                         }
-                        else
-                        {
-                            Console.WriteLine($"Lista Vazia");
-                            Thread.Sleep(3000);
-
-                        }
+                        Console.WriteLine();
+                        Console.WriteLine($"Aperte 'ENTER' para continuar");
+                        Console.ReadLine();
                         break;
 
                     case "0":
