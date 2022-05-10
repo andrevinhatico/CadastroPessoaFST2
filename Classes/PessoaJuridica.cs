@@ -3,11 +3,15 @@ using CadastroPessoaFST2.Interfaces;
 
 namespace CadastroPessoaFST2.Classes
 {
-    public class PessoaJuridica : Pessoa , IPessoaJuridica
+    public class PessoaJuridica : Pessoa, IPessoaJuridica
     {
         public string? Cnpj { get; set; }
 
         public string? RazaoSocial { get; set; }
+
+        public string? Caminho { get; private set; } = "Database/PessoaJuridica.csv";
+
+
 
         public override float PagarImposto(float rendimento)
         {
@@ -33,7 +37,7 @@ namespace CadastroPessoaFST2.Classes
         //XX.XXX.XXX/0001-XX --- XXXXXXXX0001XX
         public bool ValidarCNPJ(string cnpj)
         {
-            
+
             if (Regex.IsMatch(cnpj, @"(^(\d{2}.\d{3}.\d{3}/\d{4}-\d{2})|(\d{14})$)"))
             {
                 if (cnpj.Length == 18)
@@ -42,11 +46,12 @@ namespace CadastroPessoaFST2.Classes
                     {
                         return true;
                     }
-                    
-                } else if (cnpj.Length == 14)
+
+                }
+                else if (cnpj.Length == 14)
 
                 {
-                    if (cnpj.Substring(8, 4)== "0001")
+                    if (cnpj.Substring(8, 4) == "0001")
                     {
                         return true;
                     }
@@ -56,9 +61,41 @@ namespace CadastroPessoaFST2.Classes
             return false;
         }
 
-        internal object ValidarCNPJ(object cnpj)
+        public void Inserir(PessoaJuridica pj)
         {
-            throw new NotImplementedException();
+
+            VerificarPastaArquivo(Caminho);
+
+            string[] pjString = { $"{pj.Nome},{pj.Cnpj},{pj.RazaoSocial}" };
+
+            File.AppendAllLines(Caminho, pjString);
+
         }
+
+        public List<PessoaJuridica> LerArquivo()
+        {
+
+            List<PessoaJuridica> listaPj = new List<PessoaJuridica>();
+
+            string[] linhas = File.ReadAllLines(Caminho);
+
+            foreach (string cadaLinha in linhas)
+            {
+                string[] atributos = cadaLinha.Split(",");
+
+                PessoaJuridica cadaPj = new PessoaJuridica();
+
+                cadaPj.Nome = atributos[0];
+                cadaPj.Cnpj = atributos[1];
+                cadaPj.RazaoSocial = atributos[2];
+
+                listaPj.Add(cadaPj);
+            }
+
+            return listaPj;
+
+        }
+
+
     }
 }

@@ -14,7 +14,7 @@ Util.BarraCarregamento("Carregando", 500);
 string? opcao;
 
 List<PessoaFisica> listaPf = new List<PessoaFisica>();
-List<PessoaJuridica> listaPj = new List<PessoaJuridica>();
+//List<PessoaJuridica> listaPj = new List<PessoaJuridica>();
 
 do
 {
@@ -220,7 +220,7 @@ do
                         PessoaJuridica novaPj = new PessoaJuridica();
                         Endereco endPj = new Endereco();
 
-                        Console.WriteLine($"Digite o nome da empesa");
+                        Console.WriteLine($"Digite o nome da empresa");
                         novaPj.Nome = Console.ReadLine();
 
                         Console.WriteLine($"Digite a razão social");
@@ -270,7 +270,8 @@ do
                         }
 
                         novaPj.Endereco = endPj;
-                        listaPj.Add(novaPj);
+                        //listaPj.Add(novaPj);
+                        metodopj.Inserir(novaPj);
 
                         Console.Clear();
                         Console.WriteLine($"Cadastro realizado com sucesso!");
@@ -279,6 +280,7 @@ do
                         break;
                     case "2":
                         Console.Clear();
+                        List<PessoaJuridica> listaPj = metodopj.LerArquivo();
 
                         if (listaPj.Count > 0)
                         {
@@ -289,11 +291,11 @@ do
 Nome: {cadaPj.Nome}
 Razão Social: {cadaPj.RazaoSocial}
 CNPJ: {cadaPj.Cnpj}
-CNPJ Válido: {(metodopj.ValidarCNPJ(cadaPj.Cnpj) ? "Sim" : "Não")}
-Rendimento: {cadaPj.Rendimento.ToString("C")}
-Taxa de Imposto a ser pago é: {metodopj.PagarImposto(cadaPj.Rendimento).ToString("C")}
-Endereço: {cadaPj.Endereco.Logradouro}, {cadaPj.Endereco.Numero}, {cadaPj.Endereco.Complemento}
             ");
+                                // CNPJ Válido: {(metodopj.ValidarCNPJ(cadaPj.Cnpj) ? "Sim" : "Não")}
+                                // Rendimento: {cadaPj.Rendimento.ToString("C")}
+                                // Taxa de Imposto a ser pago é: {metodopj.PagarImposto(cadaPj.Rendimento).ToString("C")}
+                                // Endereço: {cadaPj.Endereco.Logradouro}, {cadaPj.Endereco.Numero}, {cadaPj.Endereco.Complemento}
 
                                 Console.WriteLine();
                                 Console.WriteLine($"Aperte 'ENTER' para continuar");
